@@ -1,15 +1,21 @@
-import { globalCss } from '@ignite-ui/react'
+import { createGlobalStyle } from 'styled-components'
 
-export const globalStyles = globalCss({
-  '*': {
-    boxSizing: 'border-box',
-    padding: 0,
-    margin: 0,
-  },
+export const GlobalStyles = createGlobalStyle`
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body: {
-    backgroundColor: '$gray900',
-    color: '$gray100',
-    '-webkit-font-smoothing': 'antialiased',
-  },
-})
+body {
+  background: ${(props) => props.theme.colors.Dark_300};
+  color: ${(props) => props.theme.colors.Dark_900};
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button{
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+`
